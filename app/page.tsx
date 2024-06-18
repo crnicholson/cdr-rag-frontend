@@ -13,6 +13,16 @@ export default function Home() {
     fetchData();
   }, [time]);
 
+  const sendData = async (message: string) => {
+    const response = await fetch('https://cdr.cnicholson.hackclub.app/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message }),
+    });
+  }
+
   return (
     <>
       <h1>Time keeper</h1>
