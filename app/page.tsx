@@ -2,13 +2,15 @@
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [time, updateTime] = useState(1);
+  const [time, updateTime] = useState("");
 
   useEffect(() => {
-
-    // setCount((count) => count + 1);
-    updateTime(time + 1)
-
+    const fetchData = async () => {
+      const response = await fetch('https://cdr.cnicholson.hackclub.app/api/time');
+      const jsonData = await response.json();
+      updateTime(jsonData.time);
+    }
+    fetchData();
   }, [time]);
 
   return (
