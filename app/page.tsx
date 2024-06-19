@@ -54,7 +54,7 @@ export default function Home() {
               <p className="mr-2">|</p>
               <a href="/quickstart" className="hover:text-[#606c38ea] underline decoration-dotted mr-2">Quickstart</a>
             </div>
-            <p className="mt-5">Enter your ChatGPT API key below to start chatting with hundreds of recent, curated CDR papers. Don't worry, we won't steal your API key.</p>
+            <p className="mt-5">Enter your ChatGPT API key below to start chatting with hundreds of recent, curated CDR papers. Don{"'"}t worry, we won{"'"}t steal your API key.</p>
             <p className="mt-2"><b>Note:</b> this does use 150 tokens. You get 1 million tokens for $2, so about 0.03 cents per question.</p>
             <p className=""><b>Note:</b> this is a dev preview. Security issues may occur. Do not put more than $1 on your API key.</p>
             <div className="flex flex-row my-5 items-center">
