@@ -6,21 +6,21 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [key, setKey] = useState('');
 
-  const updateKey = async (message: string) => {
-    const response = await fetch('https://cdr.cnicholson.hackclub.app/api/send-key', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ message }),
-    });
+  // const updateKey = async (message: string) => {
+  //   const response = await fetch('https://cdr.cnicholson.hackclub.app/api/send-key', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ message }),
+  //   });
 
-    if (response.ok) {
-      console.log('API key sent successfully!');
-    } else {
-      console.error('Error sending API key:', response.statusText);
-    }
-  }
+  //   if (response.ok) {
+  //     console.log('API key sent successfully!');
+  //   } else {
+  //     console.error('Error sending API key:', response.statusText);
+  //   }
+  // }
 
   const sendMessage = async (message: string) => {
     const response = await fetch('https://cdr.cnicholson.hackclub.app/api/send-message', {
@@ -28,7 +28,7 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, key }),
     });
 
     if (response.ok) {
@@ -53,12 +53,11 @@ export default function Home() {
               <p className="mr-2">|</p>
               <a href="/quickstart" className="hover:text-[#606c38ea] underline decoration-dotted mr-2">Quickstart</a>
             </div>
-            <p className="mt-5">Enter your ChatGPT API key below to start chatting with hundreds of recent, curated CDR papers. Don{"'"}t worry, we won{"'"}t steal your API key.</p>
-            <p className="mt-2"><b>Note:</b> this does use 150 tokens. You get 1 million tokens for $2, so about 0.03 cents per question.</p>
+            <p className="mt-5">Enter your ChatGPT API key below to start chatting with hundreds of recent, curated CDR papers. Don{"'"}t worry, we won{"'"}t steal your API key. However, this does use 150 tokens. You get 1 million tokens for $2, so about 0.03 cents per question.</p>
             <p className=""><b>Note:</b> this is a dev preview. Security issues may occur. Do not put more than $1 on your API key.</p>
             <div className="flex flex-row my-5 items-center">
               <textarea className="h-min p-1 mr-5 border-[#464f28] border-[1px] rounded-lg bg-gray-100" onChange={e => setKey(e.target.value)} placeholder="API Key" />
-              <button className="p-1 h-10 border-[#464f28] border-dotted border-[2px] hover:bg-[#c0c6aaea] rounded-lg bg-[#d1d6c7c6]" onClick={() => updateKey(key)}>Submit</button>
+              {/* <button className="p-1 h-10 border-[#464f28] border-dotted border-[2px] hover:bg-[#c0c6aaea] rounded-lg bg-[#d1d6c7c6]" onClick={() => updateKey(key)}>Submit</button> */}
             </div>
             <p>Enter your prompt:</p>
             <textarea className="p-1 h-[150px] mr-5 my-5 border-[#464f28] border-[1px] rounded-lg bg-gray-100 w-full" value={message} onChange={e => setMessage(e.target.value)} placeholder="Tell me about recent CDR trends." />
