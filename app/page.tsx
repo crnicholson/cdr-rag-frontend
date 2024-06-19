@@ -8,7 +8,7 @@ export default function Home() {
   const [chatbotResponse, setChatbotResponse] = useState("Enter a prompt and submit first!");
 
   const updateKey = async (message: string) => {
-    const response = await fetch('http://localhost:7359/api/send-key', {
+    const response = await fetch('https://cdr.cnicholson.hackclub.app/api/send-key', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export default function Home() {
   }
 
   const sendMessage = async (message: string) => {
-    const response = await fetch('http://localhost:7359/api/send-message', {
+    const response = await fetch('https://cdr.cnicholson.hackclub.app/api/send-message', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
